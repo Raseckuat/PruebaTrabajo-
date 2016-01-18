@@ -18,7 +18,8 @@ $equiposArray=$gestion->obtenerReg();
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
-<meta http-equiv="Content-Type" content="text/html; ISO-8859-1" />
+<meta http-equiv="Content-Type" content="text/html" />
+<meta accept-charset="UTF-8">
 
 
 <title>Prueba</title>
