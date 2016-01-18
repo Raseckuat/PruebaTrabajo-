@@ -1,11 +1,10 @@
 <?php
 require_once 'gestionBd.php';
 
-$gestion=new gestionBd();
+$gestion=new GestionBd();
 $estGen=$gestion->estGenerales();
 $equipos_nombre=$gestion->articulosNombre();
 $est=$gestion->estadisticas();
-
 
 
 ?>

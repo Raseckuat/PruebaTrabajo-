@@ -1,7 +1,7 @@
 <?php
 require_once 'gestionBd.php';
 
-$gestion=new gestionBd();
+$gestion=new GestionBd();
 $equiposArray=$gestion->obtenerReg();
 
 ?>
@@ -49,8 +49,9 @@ $equiposArray=$gestion->obtenerReg();
 			  
 			  	<?php 
 			  	foreach($equiposArray as $equipo){
+			  		
 			  		echo "<tr>";
-			  		echo "<td>".$equipo->equipo_id."</td>";
+			  		echo "<td>".$equipo->equipos_id."</td>";
 			  		echo "<td>".$equipo->nombre."</td>";
 			  		echo "<td>".$equipo->codigo."</td>";
 			  		echo "<td>".$equipo->precio."</td>";

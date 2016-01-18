@@ -1,10 +1,11 @@
 <?php
 require_once 'gestionBd.php';
-require_once 'equipos.php'; 
+require_once 'equipos.php';
 
-$gestion=new gestionBd();
+$gestion= new GestionBd(); 
+$equipo= new Equipo();
 
- $sql ="drop table equipos;create table equipos (
+$sql ="create table equipos (
  equipos_id int(10) unsigned NOT NULL AUTO_INCREMENT,
  nombre varchar(50) NOT NULL,
  codigo varchar(50) NOT NULL,
@@ -14,28 +15,26 @@ $gestion=new gestionBd();
  garantia int(3) NOT NULL,
  PRIMARY KEY (equipos_id)
  );";
- 
- $gestion->crearTabla($sql);
-
-
+$gestion->borrarTabla("drop table equipos;");
+$gestion->crearTabla($sql);
 
 /*
- * Llenar BD con 5000 o m·s registros random
+ * Llenar BD con 5000 o m√°s registros random
  */
  
- for($i=0;$i<5000;$i++){
-
+ for($i=0;$i<6000;$i++){
  $equipo->setNombre(ramdomNombre());
  $equipo->setCodigo(ramdomCodigo($equipo->getNombre()));
  $equipo->setPrecio(ramdomPrecio());
  $equipo->setFecha_fab(ramdomFechaFab());
  $equipo->setFecha_in(ramdomFechaIn());
  $equipo->setGarantia(ramdomGarantia());
- $gestion->db->insertarBd($equipo);
+ $gestion->insertarBd($equipo);
+ echo(" Ok");
  
  }
  
- 
+ ?>
 
 
 

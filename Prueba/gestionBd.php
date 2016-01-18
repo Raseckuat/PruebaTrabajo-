@@ -3,13 +3,13 @@ require_once 'conexion.php';
 require_once 'equipos.php';
 require_once 'ramdom.php';
 
-class gestionBd{
+class GestionBd{
 	
 	private $db;
 	private $equipo;
 	
 	public function __construct(){
-		$this->db=new Conexion();
+		$this->db= new Conexion();
 		$this->equipo=new Equipo();
 	}
 	
@@ -21,7 +21,7 @@ class gestionBd{
 			//echo "Equipo insertado <br>";
 		 	
 		}else{
-			echo "Fallo: equipo no insertado. ".$db->error;
+			echo "<br>Fallo: equipo no insertado. ".$db->error;
 		 	
 		}
 	
@@ -40,8 +40,9 @@ class gestionBd{
 		}
 		else
 		{
-			echo "No hubo resultados";
+			echo "No hubo resultados <br>";
 		}
+		
 		return $equipos;
 	
 	}
@@ -100,7 +101,19 @@ class gestionBd{
 	
 	public function crearTabla($sql){
 		if ($this->db->query($sql) === TRUE) {
-			echo "Base de datos creada exitosamente";
+			echo "Base de datos creada exitosamente<br>";
+	
+		} else {
+	
+			echo "<br>Fallo:no se ha creado la base <br> ".$this->error;
+	
+		}
+			
+	}
+	
+	public function borrarTabla($sql){
+		if ($this->db->query($sql) === TRUE) {
+			echo "Base de datos borrada exitosamente<br>";
 	
 		} else {
 	
