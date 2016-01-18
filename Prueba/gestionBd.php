@@ -26,9 +26,8 @@ class gestionBd{
 		}
 	
 	}
-	 
-	public function obtenerObj(){
-		$sql="SELECT * from equipos limit 1000"; //traemos 1000 registros
+
+	public function obtenerObj($sql){	
 		$result = $this->db->query($sql); //usamos la conexion para dar un resultado a la variable
 		$equipos=array();
 		if ($result->num_rows > 0) //si la variable tiene al menos 1 fila entonces seguimos con el codigo
@@ -47,10 +46,61 @@ class gestionBd{
 	
 	}
 	
+	public function obtenerReg(){
+		return $this->obtenerObj("SELECT * from equipos limit 100"); //traemos 1000 registros		
+	}
+	
+	public function articulosNombre(){
+		return ($this->obtenerObj("select nombre, count(*) as cantidad from equipos group by nombre having count(*)> 200;"));
+	}
+	
+	
+	public function estadisticas(){
+		$num_reg=$this->consultarBd("select count(*) from equipos");
+		$max= $this->consultarBd("select max(precio) from equipos");
+		$min= $this->consultarBd("select min(precio) from equipos");
+		$avg= $this->consultarBd("select avg(precio) from equipos");
+		$sum= $this->consultarBd("select sum(precio) from equipos");
+		
+		$rango1=$this->consultarBd("select count(*) from equipos where precio between 50 and 100;");
+		$prom_rango1=$this->consultarBd("select avg(precio) from equipos where precio between 50 and 100;");
+		$rango2=$this->consultarBd("select count(*) from equipos where precio between 100 and 150;");
+		$prom_rango2=$this->consultarBd("select avg(precio) from equipos where precio between 100 and 150;");
+		$rango3=$this->consultarBd("select count(*) from equipos where precio between 150 and 200;");
+		$prom_rango3=$this->consultarBd("select max(precio) from equipos where precio between 150 and 200;");
+		
+		$anio1=$this->consultarBd("select count(*) from equipos where fecha_in between '2013-01-01' and '2013-12-31';");
+		$anio2=$this->consultarBd("select count(*) from equipos where fecha_in between '2014-01-01' and '2014-12-31';");
+		$anio3=$this->consultarBd("select count(*) from equipos where fecha_in between '2015-01-01' and '2015-12-31';");
+		$anio4=$this->consultarBd("select count(*) from equipos where fecha_in between '2016-01-01' and '2016-12-31';");
+		
+		
+		
+		$estadisticas = array("num_reg"=>$num_reg,
+							  "max"=>$max,
+							  "min"=>$min,
+							  "avg"=>$avg,
+							  "sum"=>$sum,
+							  "r1"=>$rango1,
+							  "r2"=>$rango2,
+							  "r3"=>$rango3,
+							  "prom_r1"=>$prom_rango1,
+							  "prom_r2"=>$prom_rango2,
+							  "prom_r3"=>$prom_rango3,
+							  "anio1"=>$anio1,
+							  "anio2"=>$anio2,
+							  "anio3"=>$anio3,
+							  "anio4"=>$anio4,
+		);
+	
+		return $estadisticas;
+	}
 	public function consultarBd($sql){
 		$result = $this->db->query($sql);
 		$row = $result->fetch_row();
-		echo '#: ', $row[0];
+		//echo '#: ', $row[0];
+		return $row[0];
+		
 	
 	}
 	

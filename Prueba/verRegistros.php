@@ -2,7 +2,7 @@
 require_once 'gestionBd.php';
 
 $gestion=new gestionBd();
-$equiposArray=$gestion->obtenerObj();
+$equiposArray=$gestion->obtenerReg();
 
 ?>
 

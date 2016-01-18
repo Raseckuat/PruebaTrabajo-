@@ -6,7 +6,8 @@
  	 public function __construct(){
 		 parent::__construct(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 		 $this->query("SET NAMES 'utf-8';");
-		 $this->connect_errno ? die ('Error con la conexión') : $x= 'Conectado';
+		 //x=Conectado
+		 $this->connect_errno ? die ('Error con la conexión') : $x='';
 		 echo $x; 
 		 unset($x);
 	 }

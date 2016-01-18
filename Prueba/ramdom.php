@@ -11,7 +11,7 @@
  				"RaspBerry B+","RaspBerry A+",
  				"Arduino nano","Arduino mega",
  				"Onion Mega","Arduino PCDuino",
- 				"Arduino Uno V R1","Arduino Uno V R2",
+ 				"Arduino Uno V R4","Arduino Uno V R5",
  				"Panel Solar A","Panel Solar B+",
  				"Regulador 500w","Regualador 900W",
  				"Sensor Ultrasonico","Sensor de Presión",
