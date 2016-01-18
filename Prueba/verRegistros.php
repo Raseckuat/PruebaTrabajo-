@@ -32,8 +32,8 @@ $equiposArray=$gestion->obtenerReg();
 <section>
 <article>
 			<header>
-			<h2>Registros 2010</h2>
-			<p>Posted on <time datetime="2009-09-04T16:31:24+02:00">September 4th 2009</time> by <a href="#">Writer</a> - <a href="#comments">6 comments</a></p>
+			<h2>Mostar Registros (solo 100) </h2>
+			
 			</header>
 			
 			<table class="table table-striped">
@@ -65,26 +65,14 @@ $equiposArray=$gestion->obtenerReg();
 			  
 			</table>
 			
-			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-</article>
-
-<article>
-			<header>
-			<h2>Registros 2011</h2>
-			<p>Posted on <time datetime="2009-09-04T16:31:24+02:00">September 4th 2009</time> by <a href="#">Writer</a> - <a href="#comments">6 comments</a></p>
-			</header>
-			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+			
 </article>
 
 </section>
 
-<aside>
-	<h2>About section</h2>
-	<p>Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-</aside>
 
 <footer>
-		<p>Copyright 2009 Raseckuat</p>
+		<p>Copyright 2016 Raseckuat</p>
 </footer>
 
 </body>

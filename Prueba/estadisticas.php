@@ -2,8 +2,10 @@
 require_once 'gestionBd.php';
 
 $gestion=new gestionBd();
-$est=$gestion->estadisticas();
+$estGen=$gestion->estGenerales();
 $equipos_nombre=$gestion->articulosNombre();
+$est=$gestion->estadisticas();
+
 
 
 ?>
@@ -39,22 +41,24 @@ $equipos_nombre=$gestion->articulosNombre();
 				
 				<table class="table table-striped">
 				  <tr>
-				    <th>Numero de registros</th>
+				    <th># de registros</th>
 				    <th>Precio Máximo</th>
 				    <th>Precio Mínimo</th>
 				    <th>Precio Promedio</th> 
-				    <th>Total $ en stock</th>
+				    <th>Total stock</th>
 				  </tr>
 				  
 				  	<?php 
-				  		echo "<tr>";
-				  		echo "<td>".$est["num_reg"]."</td>";
-				  		echo "<td>$".$est["max"]."</td>";
-				  		echo "<td>$".$est["min"]."</td>";
-				  		echo "<td>$".$est["avg"]."</td>";
-				  		echo "<td>$".$est["sum"]."</td>";
-				  		echo "</tr>";
+				  	foreach($estGen as $info){
 				  		
+				  		echo "<tr>";
+				  		echo "<td>".$info->cantidad."</td>";
+				  		echo "<td>$".$info->caro."</td>";
+				  		echo "<td>$".$info->barato."</td>";
+				  		echo "<td>$".$info->ppromedio."</td>";
+				  		echo "<td>$".$info->total."</td>";
+				  		echo "</tr>";
+				  	}
 				  	?>
 				   
 				</table>
@@ -116,13 +120,17 @@ $equipos_nombre=$gestion->articulosNombre();
 </article>
 <article class="container">			
 						<header>		
-					<h3>Cantidad de articulos en stock mayores a 200 articulos</h3>
+					<h3>Articulos en stock</h3>
 						</header>
 					<table class="table table-striped">
 						  <tr>
 						    
 						    <th>Nombre</th>
-						    <th>Cantidad Stock</th> 
+						    <th>Cantidad</th> 
+						    <th>Más barato</th>
+						    <th>Más caro</th> 
+						    <th>$ promedio</th>
+						    <th>$ stock</th> 
 						    
 						  </tr>
 						  
@@ -132,6 +140,11 @@ $equipos_nombre=$gestion->articulosNombre();
 						  		echo "<tr>";
 						  		echo "<td>".$equipo->nombre."</td>";
 						  		echo "<td>".$equipo->cantidad."</td>";
+						  		echo "<td>".$equipo->barato."</td>";
+						  		echo "<td>".$equipo->caro."</td>";
+						  		echo "<td>".$equipo->ppromedio."</td>";
+						  		echo "<td>".$equipo->total."</td>";
+						  		
 
 						  		echo "</tr>";
 						  		
